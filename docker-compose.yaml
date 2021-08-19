@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysqldb:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+  
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - RABBITMQ_DEFAULT_PASS=databasenet
+
+  rabbit:
+    image: rabbitmq:3-management
+    ports:
+      - 8080:15672
+      - 5672:5672
+    
+    environment:
+      - RABBITMQ_DEFAULT_USER=pet
+      - RABBITMQ_DEFAULT_PASS=pet
+      
+
+      
